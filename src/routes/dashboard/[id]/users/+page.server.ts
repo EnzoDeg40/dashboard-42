@@ -23,7 +23,8 @@ export const actions = {
 
     let user = { status: 404 };
 
-    const resusers = await fetch(`/api/${params.id}/users`, {
+    const resusers = await fetch(`/api/${params.id}/user`, {
+      method: "GET",
       headers: {
         Authorization: authmdp,
       },
@@ -76,7 +77,7 @@ export const actions = {
 
     if (result.discorderror || result.intraerror) return result;
 
-    const res = await fetch(`/api/${params.id}/newuser`, {
+    const res = await fetch(`/api/${params.id}/user`, {
       method: "POST",
       headers: {
         Authorization: authmdp,
@@ -87,9 +88,7 @@ export const actions = {
       }),
     });
 
-    let data = await res.json();
-
-    if (data.status !== 200) {
+    if (res.status !== 200) {
       result.success = false;
       result.message = "Error while adding user!";
       result.intrauser = intra_user;

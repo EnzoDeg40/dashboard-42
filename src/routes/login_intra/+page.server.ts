@@ -1,4 +1,4 @@
-import { INTRA_ENDPOINT, INTRA_ID, INTRA_SECRET } from "$lib/env";
+import { BASE_URL, INTRA_ENDPOINT, INTRA_ID, INTRA_SECRET } from "$lib/env";
 import { redirect } from "@sveltejs/kit";
 import axios from "axios";
 
@@ -47,7 +47,7 @@ async function gettoken(code: string) {
     client_id: INTRA_ID,
     client_secret: INTRA_SECRET,
     code: code,
-    redirect_uri: "https://dashbord-bot.vercel.app/login_intra",
+    redirect_uri: `${BASE_URL}/login_intra`,
   };
 
   let response = await axios

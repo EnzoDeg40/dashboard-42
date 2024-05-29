@@ -25,6 +25,12 @@ export const GET = async ({ request, url }) => {
     });
   }
 
+  if (guilds.message) {
+    return new Response(JSON.stringify({ message: "Rate Limit" }), {
+      status: 404,
+    });
+  }
+
   let guilds2: any[] = [];
 
   guilds.forEach((guild: any) => {

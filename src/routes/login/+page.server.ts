@@ -1,4 +1,4 @@
-import { API_ENDPOINT, CLIENT_ID, CLIENT_SECRET } from "$lib/env";
+import { API_ENDPOINT, BASE_URL, CLIENT_ID, CLIENT_SECRET } from "$lib/env";
 import { redirect } from "@sveltejs/kit";
 import axios from "axios";
 
@@ -47,7 +47,7 @@ async function getToken(code: string) {
   const data = new URLSearchParams({
     grant_type: "authorization_code",
     code: code,
-    redirect_uri: "https://dashbord-bot.vercel.app/login",
+    redirect_uri: `${BASE_URL}/login`,
   });
 
   const response = await axios

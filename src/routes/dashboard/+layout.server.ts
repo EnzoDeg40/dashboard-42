@@ -19,7 +19,11 @@ export const load = async ({ cookies, fetch }) => {
       return redirect(302, "/");
     }
 
-    return await guilds.json();
+    const servers = await guilds.json();
+
+    if (!servers.guilds) return redirect(302, "/");
+
+    return servers;
   };
 
   return {

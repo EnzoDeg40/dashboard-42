@@ -1,13 +1,37 @@
 <script lang="ts">
-	import { type TableSource, tableMapperValues, Table } from '@skeletonlabs/skeleton';
+	import { getToastStore } from '@skeletonlabs/skeleton';
+	import Icon from '@iconify/svelte';
 	export let data;
 
-	const tableSimple: TableSource = {
-		head: ['Intra', 'Discord', 'Last Project'],
-		body: tableMapperValues(data.users, ['intra', 'username', 'projectname']),
-		meta: tableMapperValues(data.users, ['intra', 'username', 'projectname']),
-		foot: ['Total', '', `<code class="code">${data.users.length}</code>`]
-	};
+	const toastStore = getToastStore();
+
+	let tableArr = data.users;
+	let len = tableArr.length;
+
+	/** @type {import('./$types').ActionData} */
+	export let form;
+
+	if (form)
+	{
+		if (form.success)
+		{
+			toastStore.trigger({
+				message: form.message,
+				timeout: 5000,
+				hideDismiss: true,
+				background: 'variant-filled-success'
+			});
+		}
+		else
+		{
+			toastStore.trigger({
+				message: form.message,
+				timeout: 5000,
+				hideDismiss: true,
+				background: 'variant-filled-error'
+			});
+		}
+	}
 </script>
 
 <div class="flex h-[95vh] justify-center items-center overflow-y-hidden">
@@ -17,7 +41,43 @@
 			{#if data.users.length === 0}
 				<p>No users found</p>
 			{:else}
-				<Table source={tableSimple} />
+				<table class="table table-hover">
+					<thead>
+						<tr>
+							<th>Intra</th>
+							<th>Discord</th>
+							<th>Delete</th>
+						</tr>
+					</thead>
+					<tbody>
+						{#each tableArr as row, i}
+							<tr>
+								<td>{row.intra}</td>
+								<td>{row.username}</td>
+								<td class="flex justify-center">
+									<form method="POST">
+										<input
+											type="hidden"
+											name="user-id"
+											value={row.id}
+										/>
+										<button
+											type="submit"
+										>
+											<Icon icon="twemoji:cross-mark"/>
+										</button>
+									</form>
+								</td>
+							</tr>
+						{/each}
+					</tbody>
+					<tfoot>
+						<tr>
+							<th colspan="2">Total</th>
+							<td><code class="code">{len}</code></td>
+						</tr>
+					</tfoot>
+				</table>
 			{/if}
 		</div>
 	</div>

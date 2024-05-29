@@ -21,10 +21,6 @@
 				go back to safety
 			</a>
 		</div>
-
-	</div>
-	<div>
-		<pre class="pre">{JSON.stringify($page, null, 2)}</pre>
 	</div>
 </div>
 

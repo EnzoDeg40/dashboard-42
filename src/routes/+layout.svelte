@@ -12,7 +12,10 @@
 		arrow,
 	} from "@floating-ui/dom";
 	import { injectSpeedInsights } from '@vercel/speed-insights/sveltekit';
+	import { inject } from '@vercel/analytics';
+  import Icon from "@iconify/svelte";
 
+	inject();
 	injectSpeedInsights();
 
 	storePopup.set({ computePosition, autoUpdate, offset, shift, flip, arrow });
@@ -59,7 +62,7 @@
 					target="_blank"
 					rel="noreferrer"
 				>
-					Discord
+					<Icon icon="ic:baseline-discord" class="mr-2"/>Discord
 				</a>
 				<a
 					class="btn btn-sm variant-ghost-surface"
@@ -67,7 +70,7 @@
 					target="_blank"
 					rel="noreferrer"
 				>
-					Github
+					<Icon icon="mdi:github" class="mr-2"/> Github
 				</a>
 				{#if !data.user}
 					<a

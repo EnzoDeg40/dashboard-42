@@ -8,3 +8,4 @@ export const CLIENT_ID = import.meta.env.VITE_CLIENT_ID;
 export const CLIENT_SECRET = import.meta.env.VITE_CLIENT_SECRET;
 export const INTRA_ID = import.meta.env.VITE_INTRA_ID;
 export const INTRA_SECRET = import.meta.env.VITE_INTRA_SECRET;
+export const BASE_URL = import.meta.env.VITE_BASE_URL;

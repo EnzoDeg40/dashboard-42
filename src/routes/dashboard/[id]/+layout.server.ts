@@ -1,7 +1,7 @@
 import { authmdp, bottoken } from "$lib/env";
 import { redirect } from "@sveltejs/kit";
 
-export const load = async ({ params, fetch, url, cookies }) => {
+export const load = async ({ params, fetch, url, cookies, parent }) => {
   const { id } = params;
 
   const fetchGuild = async () => {
@@ -45,9 +45,6 @@ export const load = async ({ params, fetch, url, cookies }) => {
       headers: {
         Authorization: authmdp,
       },
-    }).catch((err) => {
-      console.error(err);
-      return redirect(302, "/");
     });
 
     const data = await res?.json();
@@ -59,14 +56,13 @@ export const load = async ({ params, fetch, url, cookies }) => {
       }
     });
 
-    if (check === false) return redirect(302, `/dashboard/${id}`);
+    return check;
   };
 
-  if (!url.pathname.endsWith(id)) {
-    await fetchResponse();
-  }
+  let indb = (await fetchResponse()) || false;
 
   return {
+    indb: indb,
     server: await fetchGuild(),
     discordusers: await fetchUsers(),
   };

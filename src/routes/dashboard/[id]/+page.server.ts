@@ -1,7 +1,8 @@
 import { authmdp } from "$lib/env";
 import { redirect } from "@sveltejs/kit";
 
-export const load = async ({ params, fetch }) => {
+export const load = async ({ params, fetch, parent }) => {
+  const { servers } = await parent();
   const { id } = params;
 
   const fetchResponse = async () => {
@@ -18,9 +19,11 @@ export const load = async ({ params, fetch }) => {
 
     let check = false;
     data.guilds.forEach((guild: any) => {
-      if (guild.guildid === id) {
-        check = true;
-      }
+      servers.find((server: any) => {
+        if (server.id === guild.guildid) {
+          check = true;
+        }
+      });
     });
 
     return check;

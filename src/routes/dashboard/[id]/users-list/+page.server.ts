@@ -5,7 +5,8 @@ export const load = async ({ params, fetch, parent }) => {
   const { id } = params;
 
   const fetchResponse = async () => {
-    const res = await fetch(`/api/${id}/users`, {
+    const res = await fetch(`/api/${id}/user`, {
+      method: "GET",
       headers: {
         Authorization: authmdp,
       },
@@ -15,8 +16,6 @@ export const load = async ({ params, fetch, parent }) => {
     });
 
     const data = await res?.json();
-
-    // console.log(data.users);
 
     let newusers: any[] = [];
     data.users.forEach((user: any) => {
@@ -41,6 +40,29 @@ export const load = async ({ params, fetch, parent }) => {
 
 export const actions = {
   default: async ({ request, fetch, params }) => {
-    console.log("default");
+    const formData = await request.formData();
+    const user_id = formData.get("user-id")?.toString() || "";
+
+    const result = {
+      success: true,
+      message: "User successfully deleted!",
+    };
+
+    const res = await fetch(`/api/${params.id}/user`, {
+      method: "DELETE",
+      headers: {
+        Authorization: authmdp,
+      },
+      body: JSON.stringify({
+        id: user_id,
+      }),
+    });
+
+    if (res.status !== 200) {
+      result.success = false;
+      result.message = "Error while deleting user!";
+    }
+
+    return result;
   },
 };

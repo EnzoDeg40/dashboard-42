@@ -1,6 +1,7 @@
 <script lang="ts">
 	import type {AutocompleteOption,  PopupSettings, ToastSettings } from '@skeletonlabs/skeleton';
 	import { Autocomplete, popup, getToastStore } from '@skeletonlabs/skeleton';
+	import Icon from '@iconify/svelte';
 
 	const toastStore = getToastStore();
 
@@ -85,31 +86,45 @@
 				bind:value={users}
 				name="users"
 			/>
-			<input
-				class="input {inputIntraError? "input-error" : ""} autocomplete p-4 pb-2 pt-2"
-				type="search"
-				name="intra-user"
-				bind:value={inputIntra}
-				on:focus={() => inputIntraError = false}
-				placeholder="Search intra..."
-			/>
-			<input
-				class="input {inputDiscordError? "input-error" : ""} autocomplete p-4 pb-2 pt-2"
-				type="search"
-				name="discord-user"
-				bind:value={inputDiscord}
-				on:focus={() => inputDiscordError = false}
-				placeholder="Search discord..."
-				use:popup={popupSettings}
-			/>
-			<div data-popup="popupDiscord" class="card w-full max-w-sm max-h-48 p-4 overflow-y-auto" tabindex="-1">
-				<Autocomplete
-					bind:input={inputDiscord}
-					options={options}
-					on:selection={onPopupDemoSelect}
-				/>
+			<div class="flex flex-row items-center gap-5  w-full">
+				<div class="flex flex-col justify-between h-20">
+					<div class="pl-4 text-xl flex justify-start">
+						<p>Intra username : </p>
+					</div>
+					<input
+						class="input {inputIntraError? 'input-error' : ''} autocomplete p-4 pb-2 pt-2 w-full"
+						type="search"
+						name="intra-user"
+						bind:value={inputIntra}
+						on:focus={() => inputIntraError = false}
+						placeholder="Search intra..."
+					/>
+				</div>
+				<div class="flex flex-col justify-between h-20">
+					<div class="pl-4 text-xl flex justify-start">
+						<p>Discord username : </p>
+					</div>
+					<input
+						class="input {inputDiscordError? 'input-error' : ''} autocomplete p-4 pb-2 pt-2 w-full"
+						type="search"
+						name="discord-user"
+						bind:value={inputDiscord}
+						on:focus={() => inputDiscordError = false}
+						placeholder="Search discord..."
+						use:popup={popupSettings}
+					/>
+					<div data-popup="popupDiscord" class="card w-full max-w-sm max-h-48 p-4 overflow-y-auto" tabindex="-1">
+						<Autocomplete
+							bind:input={inputDiscord}
+							options={options}
+							on:selection={onPopupDemoSelect}
+						/>
+					</div>
+				</div>
+				<div class="flex items-end h-20">
+					<button class="btn variant-filled" type="submit">Add User</button>
+				</div>
 			</div>
-			<button class="btn variant-filled" type="submit">Add User</button>
 		</form>
 	</div>
 </div>

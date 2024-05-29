@@ -1,10 +1,12 @@
 <script lang="ts">
 	import { Stepper, Step } from '@skeletonlabs/skeleton';
 	import { page } from '$app/stores';
+	import Icon from '@iconify/svelte';
 
 	export let data;
 
 	let locked: boolean = !data.inguild;
+	let locked2: boolean = !data.indb;
 
 	let name = data.server.name;
 	if (data.server.name === undefined) {
@@ -24,7 +26,7 @@
 		<div class="text-left w-full card p-4 text-token">
 			<Stepper on:complete={onCompleteHandler}>
 				<Step locked={locked}>
-					<svelte:fragment slot="header">Invite the bot</svelte:fragment>
+					<svelte:fragment slot="header"><p class="flex justify-content items-center">Invite the bot<Icon icon="bxs:bot" class="ml-2"/></p></svelte:fragment>
 					<p>Before doing anything, you need to invite the bot on your Server</p>
 					<aside class="place-holder alert variant-ghost-warning">
 						<div class="alert-message">
@@ -36,20 +38,24 @@
 								href="https://discord.com"
 								target="_blank"
 								rel="noreferrer"
-								on:click={() => { locked = false; } }
 							>
 								Invite
 							</a>
 						</div>
 					</aside>
 				</Step>
-				<Step>
-					<svelte:fragment slot="header">(header)</svelte:fragment>
-					(content)
+				<Step locked={locked2}>
+					<svelte:fragment slot="header">bot initialization</svelte:fragment>
+					you need to run the <code class="code">/init</code> command to initialize the bot
+					<aside class="place-holder alert variant-ghost-warning">
+						<div class="alert-message">
+							<p>This step is <u>{locked2 ? 'Locked' : 'Unlocked'}</u>{locked2 ? ' , You should run the command first' : ''}</p>
+						</div>
+					</aside>
 				</Step>
 				<Step>
-					<svelte:fragment slot="header">(header)</svelte:fragment>
-					(content)
+					<svelte:fragment slot="header">Settings page</svelte:fragment>
+					you can go to <a href="/dashboard/{$page.params.id}/settings" class="">settings page</a> to configure the bot
 				</Step>
 				<Step>
 					<svelte:fragment slot="header">(header)</svelte:fragment>
