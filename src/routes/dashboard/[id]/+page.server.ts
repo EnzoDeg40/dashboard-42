@@ -1,4 +1,5 @@
 import { redirect } from "@sveltejs/kit";
+import { authmdp } from "$env/static/private";
 
 export const load = async ({ params, fetch, parent }) => {
   const { servers } = await parent();
@@ -7,7 +8,7 @@ export const load = async ({ params, fetch, parent }) => {
   const fetchResponse = async () => {
     const res = await fetch(`/api/guilds`, {
       headers: {
-        Authorization: process.env.authmdp || "",
+        Authorization: authmdp || "",
       },
     }).catch((err) => {
       console.error(err);

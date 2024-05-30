@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { Avatar } from '@skeletonlabs/skeleton';
+	import { PUBLIC_BASE_URL } from "$env/static/public";
 	export let data;
 
 	const user = data.userintra;
@@ -12,7 +13,7 @@
 			<div class="flex justify-center space-x-2">
 				<a
 					class="btn variant-filled"
-					href="https://api.intra.42.fr/oauth/authorize?client_id=u-s4t2ud-ec6fede3af09fc4668fad541b315d62858d4e25bec275ec0ab34ac69b58014e4&redirect_uri={process.env.BASE_URL}/login_intra&response_type=code"
+					href="https://api.intra.42.fr/oauth/authorize?client_id=u-s4t2ud-ec6fede3af09fc4668fad541b315d62858d4e25bec275ec0ab34ac69b58014e4&redirect_uri={PUBLIC_BASE_URL}/login_intra&response_type=code"
 					rel="noreferrer"
 				>
 					Login

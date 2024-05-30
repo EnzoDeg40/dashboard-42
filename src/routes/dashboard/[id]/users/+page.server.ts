@@ -1,3 +1,5 @@
+import { authmdp } from "$env/static/private";
+
 export const actions = {
   default: async ({ request, fetch, cookies, params }) => {
     const formData = await request.formData();
@@ -24,7 +26,7 @@ export const actions = {
     const resusers = await fetch(`/api/${params.id}/user`, {
       method: "GET",
       headers: {
-        Authorization: process.env.authmdp || "",
+        Authorization: authmdp || "",
       },
     });
 
@@ -78,7 +80,7 @@ export const actions = {
     const res = await fetch(`/api/${params.id}/user`, {
       method: "POST",
       headers: {
-        Authorization: process.env.authmdp || "",
+        Authorization: authmdp || "",
       },
       body: JSON.stringify({
         discord_id: user_id,

@@ -1,9 +1,10 @@
 import { clientdb } from "$lib/database";
+import { authmdp } from "$env/static/private";
 
 export const GET = async ({ request }) => {
   const auth = request.headers.get("Authorization");
 
-  if (auth != process.env.authmdp) {
+  if (auth != authmdp) {
     return new Response(JSON.stringify({ message: "Unauthorized" }), {
       status: 401,
     });

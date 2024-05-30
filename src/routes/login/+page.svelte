@@ -1,8 +1,11 @@
 <script lang="ts">
 	import { Avatar } from '@skeletonlabs/skeleton';
+	import { PUBLIC_BASE_URL } from "$env/static/public";
 	export let data;
 
 	const user = data.user;
+
+	console.log("bonjour");
 </script>
 
 <div class="container h-full mx-auto flex justify-center items-center">
@@ -12,7 +15,7 @@
 			<div class="flex justify-center space-x-2">
 				<a
 					class="btn variant-filled"
-					href="https://discord.com/oauth2/authorize?client_id=1208567625337151488&response_type=code&redirect_uri={process.env.BASE_URL}/login&scope=identify+guilds.members.read+guilds"
+					href="https://discord.com/oauth2/authorize?client_id=1208567625337151488&response_type=code&redirect_uri={PUBLIC_BASE_URL}/login&scope=identify+guilds.members.read+guilds"
 					rel="noreferrer"
 				>
 					Login

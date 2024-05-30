@@ -1,3 +1,5 @@
+import { authmdp } from "$env/static/private";
+
 export const load = async ({ params, fetch, parent }) => {
   const dataparent = await parent();
   const { id } = params;
@@ -6,7 +8,7 @@ export const load = async ({ params, fetch, parent }) => {
     const res = await fetch(`/api/${id}/user`, {
       method: "GET",
       headers: {
-        Authorization: process.env.authmdp || "",
+        Authorization: authmdp || "",
       },
     }).catch((err) => {
       console.error(err);
@@ -49,7 +51,7 @@ export const actions = {
     const res = await fetch(`/api/${params.id}/user`, {
       method: "DELETE",
       headers: {
-        Authorization: process.env.authmdp || "",
+        Authorization: authmdp || "",
       },
       body: JSON.stringify({
         id: user_id,

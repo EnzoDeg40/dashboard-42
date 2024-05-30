@@ -1,4 +1,5 @@
 import { redirect } from "@sveltejs/kit";
+import { authmdp } from "$env/static/private";
 
 export const load = async ({ cookies, fetch }) => {
   let token = cookies.get("token");
@@ -7,7 +8,7 @@ export const load = async ({ cookies, fetch }) => {
   const fetchGuilds = async () => {
     const guilds = await fetch(`/api/discord/guilds?token=${token}`, {
       headers: {
-        Authorization: process.env.authmdp || "",
+        Authorization: authmdp || "",
       },
     }).catch((err) => {
       console.error(err);

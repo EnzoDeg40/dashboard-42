@@ -1,6 +1,7 @@
 import { MongoClient, ServerApiVersion } from "mongodb";
+import { mdbuser, mdbmdp } from "$env/static/private";
 
-const uri = `mongodb+srv://${process.env.mdbuser}:${process.env.mdbmdp}@bot-42.qxgaebq.mongodb.net/?retryWrites=true&w=majority`;
+const uri = `mongodb+srv://${mdbuser}:${mdbmdp}@bot-42.qxgaebq.mongodb.net/?retryWrites=true&w=majority`;
 
 export const clientdb = new MongoClient(uri, {
   serverApi: {

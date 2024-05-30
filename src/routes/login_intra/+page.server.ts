@@ -1,6 +1,9 @@
 import { redirect } from "@sveltejs/kit";
 import axios from "axios";
 
+import { INTRA_ID, INTRA_ENDPOINT, INTRA_SECRET } from "$env/static/private";
+import { PUBLIC_BASE_URL } from "$env/static/public";
+
 export async function load({ cookies, url }) {
   let code = url.searchParams.get("code");
 
@@ -43,14 +46,14 @@ export async function load({ cookies, url }) {
 async function gettoken(code: string) {
   const data = {
     grant_type: "authorization_code",
-    client_id: process.env.INTRA_ID,
-    client_secret: process.env.INTRA_SECRET,
+    client_id: INTRA_ID,
+    client_secret: INTRA_SECRET,
     code: code,
-    redirect_uri: `${process.env.BASE_URL}/login_intra`,
+    redirect_uri: `${PUBLIC_BASE_URL}/login_intra`,
   };
 
   let response = await axios
-    .post(`${process.env.INTRA_ENDPOINT}/oauth/token`, data)
+    .post(`${INTRA_ENDPOINT}/oauth/token`, data)
     .catch((error) => {
       console.log("error", error);
       return null;
@@ -61,7 +64,7 @@ async function gettoken(code: string) {
 
 async function getUser(token: any) {
   const response = await axios
-    .get(`${process.env.INTRA_ENDPOINT}/me`, {
+    .get(`${INTRA_ENDPOINT}/me`, {
       headers: {
         Authorization: `Bearer ${token.access_token}`,
       },

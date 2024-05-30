@@ -1,7 +1,9 @@
+import { authmdp, API_ENDPOINT } from "$env/static/private";
+
 export const GET = async ({ request, url, params }) => {
   const auth = request.headers.get("Authorization");
 
-  if (auth != process.env.authmdp) {
+  if (auth != authmdp) {
     return new Response(JSON.stringify({ message: "Unauthorized" }), {
       status: 401,
     });
@@ -12,7 +14,7 @@ export const GET = async ({ request, url, params }) => {
   // console.log(`Bot ${access_token?.replaceAll('"', "")}`);
 
   const channels = await fetch(
-    `${process.env.API_ENDPOINT}/guilds/${params.guildid}/channels`,
+    `${API_ENDPOINT}/guilds/${params.guildid}/channels`,
     {
       headers: {
         Authorization: `Bot ${access_token?.replaceAll('"', "")}`,
