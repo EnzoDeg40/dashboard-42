@@ -35,7 +35,7 @@
 						<div class="alert-actions">
 							<a
 								class="btn btn-sm variant-filled-primary"
-								href="https://discord.com"
+								href="https://discord.com/oauth2/authorize?client_id=1208567625337151488&permissions=85056&scope=bot+applications.commands"
 								target="_blank"
 								rel="noreferrer"
 							>
