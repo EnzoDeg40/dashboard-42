@@ -1,4 +1,3 @@
-import { API_ENDPOINT, BASE_URL, CLIENT_ID, CLIENT_SECRET } from "$lib/env";
 import { redirect } from "@sveltejs/kit";
 import axios from "axios";
 
@@ -22,7 +21,7 @@ export async function load({ cookies, url }) {
     if (token) {
       const access_token = token.access_token;
 
-      const user = await axios.get(`${API_ENDPOINT}/users/@me`, {
+      const user = await axios.get(`${process.env.API_ENDPOINT}/users/@me`, {
         headers: {
           Authorization: `Bearer ${access_token}`,
         },
@@ -47,17 +46,17 @@ async function getToken(code: string) {
   const data = new URLSearchParams({
     grant_type: "authorization_code",
     code: code,
-    redirect_uri: `${BASE_URL}/login`,
+    redirect_uri: `${process.env.BASE_URL}/login`,
   });
 
   const response = await axios
-    .post(`${API_ENDPOINT}/oauth2/token`, data, {
+    .post(`${process.env.API_ENDPOINT}/oauth2/token`, data, {
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
       },
       auth: {
-        username: CLIENT_ID,
-        password: CLIENT_SECRET,
+        username: process.env.CLIENT_ID || "",
+        password: process.env.CLIENT_SECRET || "",
       },
     })
     .catch((error) => {

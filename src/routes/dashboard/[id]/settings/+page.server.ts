@@ -1,4 +1,3 @@
-import { authmdp, bottoken } from "$lib/env";
 import { redirect } from "@sveltejs/kit";
 
 export const load = async ({ params, fetch }) => {
@@ -7,7 +6,7 @@ export const load = async ({ params, fetch }) => {
   const fetchResponse = async () => {
     const res = await fetch(`/api/${id}/params`, {
       headers: {
-        Authorization: authmdp,
+        Authorization: process.env.authmdp || "",
       },
     }).catch((err) => {
       console.error(err);
@@ -20,9 +19,9 @@ export const load = async ({ params, fetch }) => {
   };
 
   const fetchChannels = async () => {
-    const res = await fetch(`/api/${id}/channels?token=${bottoken}`, {
+    const res = await fetch(`/api/${id}/channels?token=${process.env.bottoken}`, {
       headers: {
-        Authorization: authmdp,
+        Authorization: process.env.authmdp || "",
       },
     }).catch((err) => {
       console.error(err);
@@ -57,7 +56,7 @@ export const actions = {
     const res = await fetch(`/api/${params.id}/params`, {
       method: "POST",
       headers: {
-        Authorization: authmdp,
+        Authorization: process.env.authmdp || "",
       },
       body: JSON.stringify({
         check: check === "on",

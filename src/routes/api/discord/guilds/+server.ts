@@ -1,9 +1,7 @@
-import { API_ENDPOINT, authmdp } from "$lib/env";
-
 export const GET = async ({ request, url }) => {
   const auth = request.headers.get("Authorization");
 
-  if (auth != authmdp) {
+  if (auth != process.env.authmdp) {
     return new Response(JSON.stringify({ message: "Unauthorized" }), {
       status: 401,
     });
@@ -13,7 +11,7 @@ export const GET = async ({ request, url }) => {
 
   // console.log(`Bearer ${access_token?.replaceAll('"', "")}`);
 
-  const guilds = await fetch(`${API_ENDPOINT}/users/@me/guilds`, {
+  const guilds = await fetch(`${process.env.API_ENDPOINT}/users/@me/guilds`, {
     headers: {
       Authorization: `Bearer ${access_token}`,
     },

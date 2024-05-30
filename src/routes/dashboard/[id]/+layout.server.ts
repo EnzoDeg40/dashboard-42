@@ -1,13 +1,12 @@
-import { authmdp, bottoken } from "$lib/env";
 import { redirect } from "@sveltejs/kit";
 
 export const load = async ({ params, fetch, url, cookies, parent }) => {
   const { id } = params;
 
   const fetchGuild = async () => {
-    const res = await fetch(`/api/${id}/guild?token=${bottoken}`, {
+    const res = await fetch(`/api/${id}/guild?token=${process.env.bottoken}`, {
       headers: {
-        Authorization: authmdp,
+        Authorization: process.env.authmdp || "",
       },
     }).catch((err) => {
       console.error(err);
@@ -27,7 +26,7 @@ export const load = async ({ params, fetch, url, cookies, parent }) => {
       `/api/${id}/discordusers?token=${token.access_token}`,
       {
         headers: {
-          Authorization: authmdp,
+          Authorization: process.env.authmdp || "",
         },
       }
     ).catch((err) => {
@@ -43,7 +42,7 @@ export const load = async ({ params, fetch, url, cookies, parent }) => {
   const fetchResponse = async () => {
     const res = await fetch(`/api/guilds`, {
       headers: {
-        Authorization: authmdp,
+        Authorization: process.env.authmdp || "",
       },
     });
 

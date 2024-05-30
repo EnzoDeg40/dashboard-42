@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { BASE_URL } from '$lib/env.js';
 	import { Avatar } from '@skeletonlabs/skeleton';
 	export let data;
 
@@ -13,7 +12,7 @@
 			<div class="flex justify-center space-x-2">
 				<a
 					class="btn variant-filled"
-					href="https://discord.com/oauth2/authorize?client_id=1208567625337151488&response_type=code&redirect_uri={BASE_URL}/login&scope=identify+guilds.members.read+guilds"
+					href="https://discord.com/oauth2/authorize?client_id=1208567625337151488&response_type=code&redirect_uri={process.env.BASE_URL}/login&scope=identify+guilds.members.read+guilds"
 					rel="noreferrer"
 				>
 					Login
