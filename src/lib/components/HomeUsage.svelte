@@ -33,11 +33,10 @@
 										Create personalized messages for each success. Add congratulations, emojis, and inspiring messages to make each notification special.
 									</p>
 								</div>
-								<Avatar
+								<img
 									src="exemple.png"
-									alt="Marty Logo"
-									width="w-[20vw]"
-									rounded="rounded-3xl"
+									alt="exemple of a message"
+									class="w-[20vw] min-w-[350px]"
 								/>
 							</div>
 						</svelte:fragment>

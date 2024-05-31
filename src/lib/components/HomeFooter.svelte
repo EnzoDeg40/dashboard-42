@@ -1,4 +1,4 @@
-<div class="container h-full mx-auto w-1/2 flex flex-col justify-between items-center gap-[5vw] text-left">
+<div class="container h-full mx-auto w-1/2 min-w-[400px] flex flex-col justify-between items-center gap-[5vw] text-left">
 	<div class="text-left">
 		<h1 class="h1">Ready to Celebrate Your Friends' Successes?</h1>
 		<br>
@@ -8,7 +8,7 @@
 	</div>
 	<a
 		class="btn btn-lg font-bold variant-filled-primary"
-		href="/dashboard"
+		href="https://discord.com/oauth2/authorize?client_id=1208567625337151488&permissions=85056&scope=bot+applications.commands"
 	>
 		Invite Marty
 	</a>

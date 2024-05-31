@@ -8,7 +8,7 @@
 </script>
 
 <div class="container h-full mx-auto flex justify-center items-center">
-	<div class="space-y-10 w-1/2 text-center flex flex-col items-center">
+	<div class="space-y-10 w-1/2 text-center flex flex-col items-center min-w-[450px]">
 		<h2 class="h2">How It Works</h2>
 		<div class="text-left w-full card p-4 text-token">
 			<Stepper on:complete={onCompleteHandler}>
