@@ -57,15 +57,14 @@ yarn install
 ### Running the Project
 Start the development server:
 
-bash
-Copier le code
+``` bash
 npm run dev
+```
 or
-
-bash
-Copier le code
+``` bash
 yarn dev
-Open your browser and navigate to http://localhost:5000 to view the dashboard.
+```
+Open your browser and navigate to http://localhost:5173 to view the dashboard.
 
 ## Usage
 Invite the Bot: Use the provided invitation link to add Marty42 to your Discord server.
