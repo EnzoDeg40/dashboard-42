@@ -57,16 +57,16 @@ yarn install
 #### Get API key:
 here a template of .env file you need to provide:
 ``` txt
-mdbmdp= (mongodb mdp)
-mdbuser= (mongodb user)
-authmdp= (mdp for own api)
-bottoken= (discord bot token)
+mdbmdp=(mongodb mdp)
+mdbuser=(mongodb user)
+authmdp=(mdp for own api)
+bottoken=(discord bot token)
 API_ENDPOINT=https://discord.com/api/v10
 INTRA_ENDPOINT=https://api.intra.42.fr/v2
-CLIENT_ID= (channel log id)
-CLIENT_SECRET= (bot discord secret)
-INTRA_ID= (intra id of the app)
-INTRA_SECRET= (intra secret)
+CLIENT_ID=(channel log id)
+CLIENT_SECRET=(bot discord secret)
+INTRA_ID=(intra id of the app)
+INTRA_SECRET=(intra secret)
 PUBLIC_BASE_URL=https://marty42.xyz
 PUBLIC_DEV_URL=http://localhost:5173
 ```
