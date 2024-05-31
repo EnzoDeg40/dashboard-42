@@ -67,20 +67,20 @@ yarn dev
 Open your browser and navigate to http://localhost:5173 to view the dashboard.
 
 ## Usage
-Invite the Bot: Use the provided invitation link to add Marty42 to your Discord server.
-Connect to Discord: Log in to your Discord account via the dashboard to allow Marty42 to post notifications.
-Connect to Intra 42: Log in to your Intra 42 account to enable tracking of your friends' achievements.
-Configure Notifications: Customize the notification settings and messages to your liking through the dashboard.
+Invite the Bot: Use the provided invitation link to add Marty42 to your Discord server.   
+Connect to Discord: Log in to your Discord account via the dashboard to allow Marty42 to post notifications.   
+Connect to Intra 42: Log in to your Intra 42 account to enable tracking of your friends' achievements.   
+Configure Notifications: Customize the notification settings and messages to your liking through the dashboard.   
 
 ## Contributing
 We welcome contributions! Please follow these steps to contribute:
 
 Fork the repository.
-Create a new branch (git checkout -b feature/your-feature-name).
-Make your changes and commit them (git commit -m 'Add some feature').
-Push to the branch (git push origin feature/your-feature-name).
-Open a pull request.
-Please ensure your code follows the project's coding standards and includes appropriate tests.
+Create a new branch (git checkout -b feature/your-feature-name).   
+Make your changes and commit them (git commit -m 'Add some feature').   
+Push to the branch (git push origin feature/your-feature-name).    
+Open a pull request.   
+Please ensure your code follows the project's coding standards and includes appropriate tests.   
 
 ## License
 This project is licensed under the MIT License - see the LICENSE file for details.
