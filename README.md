@@ -43,7 +43,7 @@ Clone the repository:
 git clone https://github.com/cdurdetrouver/dashboard-42.git
 cd dashboard-42
 ```
-## Install the dependencies:
+Install the dependencies:
 
 ``` bash
 npm install
