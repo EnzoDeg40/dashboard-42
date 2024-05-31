@@ -34,9 +34,8 @@
 	}
 </script>
 
-<div class="flex h-[95vh] justify-center items-center overflow-y-hidden">
-	<div class="container h-1/2 mx-auto flex justify-center items-center">
-		<div class="space-y-10 text-center flex flex-col items-center">
+<div class="container h-[92vh] mx-auto flex justify-center overflow-y-scroll">
+	<div class="space-y-10 text-center flex flex-col items-center p-[10vh]">
 			<h2 class="h2">Users List</h2>
 			{#if data.users.length === 0}
 				<p>No users found</p>
@@ -74,11 +73,10 @@
 					<tfoot>
 						<tr>
 							<th colspan="2">Total</th>
-							<td><code class="code">{len}</code></td>
+							<td><code class="code">{len} / 20</code></td>
 						</tr>
 					</tfoot>
 				</table>
 			{/if}
-		</div>
 	</div>
 </div>

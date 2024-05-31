@@ -1,8 +1,11 @@
 import { redirect } from "@sveltejs/kit";
 import { authmdp, bottoken } from "$env/static/private";
 
-export const load = async ({ params, fetch }) => {
+export const load = async ({ params, fetch, parent }) => {
   const { id } = params;
+  const { indb } = await parent();
+
+  if (!indb) return redirect(302, `/dashboard/${id}`);
 
   const fetchResponse = async () => {
     const res = await fetch(`/api/${id}/params`, {
@@ -26,7 +29,7 @@ export const load = async ({ params, fetch }) => {
       },
     }).catch((err) => {
       console.error(err);
-      return redirect(302, "/");
+      return redirect(302, "/dashboard");
     });
 
     const data = await res?.json();

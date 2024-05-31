@@ -1,9 +1,7 @@
 import { redirect } from "@sveltejs/kit";
 import axios from "axios";
 import { API_ENDPOINT, CLIENT_ID, CLIENT_SECRET } from "$env/static/private";
-import { PUBLIC_BASE_URL } from "$env/static/public";
-
-export const prerender = false;
+import { PUBLIC_BASE_URL, PUBLIC_DEV_URL } from "$env/static/public";
 
 export async function load({ cookies, url }) {
   let code = url.searchParams.get("code");
@@ -32,10 +30,12 @@ export async function load({ cookies, url }) {
       // console.log("user", user.data);
       cookies.set("user", JSON.stringify(user.data), {
         path: "/",
+        expires : new Date(Date.now() + token.expires_in * 1000),
       });
 
       cookies.set("token", JSON.stringify(token), {
         path: "/",
+        expires : new Date(Date.now() + token.expires_in * 1000),
       });
 
       return redirect(302, "/login");
@@ -66,6 +66,5 @@ async function getToken(code: string) {
       return null;
     });
 
-  // console.log("response", response ? response.data : null);
   return response ? response.data : null;
 }

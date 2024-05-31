@@ -1,4 +1,12 @@
 import { authmdp } from "$env/static/private";
+import { redirect } from "@sveltejs/kit";
+
+export const load = async ({ params, fetch, parent }) => {
+  const { indb } = await parent();
+  const { id } = params;
+
+  if (!indb) return redirect(302, `/dashboard/${id}`);
+}
 
 export const actions = {
   default: async ({ request, fetch, cookies, params }) => {

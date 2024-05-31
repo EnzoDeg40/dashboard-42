@@ -12,16 +12,16 @@ export const load = async ({ cookies, fetch }) => {
       },
     }).catch((err) => {
       console.error(err);
-      return redirect(302, "/");
+      return redirect(302, "/dashboard");
     });
 
     if (guilds.status === 401) {
-      return redirect(302, "/");
+      return redirect(302, "/dashboard");
     }
 
     const servers = await guilds.json();
 
-    if (!servers.guilds) return redirect(302, "/");
+    if (!servers.guilds) return redirect(302, "/dashboard");
 
     return servers;
   };

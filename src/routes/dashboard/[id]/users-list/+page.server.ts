@@ -1,8 +1,11 @@
 import { authmdp } from "$env/static/private";
+import { redirect } from "@sveltejs/kit";
 
 export const load = async ({ params, fetch, parent }) => {
   const dataparent = await parent();
   const { id } = params;
+
+  if (!dataparent.indb) return redirect(302, `/dashboard/${id}`);
 
   const fetchResponse = async () => {
     const res = await fetch(`/api/${id}/user`, {

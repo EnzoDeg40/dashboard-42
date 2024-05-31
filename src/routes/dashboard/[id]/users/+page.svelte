@@ -1,7 +1,6 @@
 <script lang="ts">
 	import type {AutocompleteOption,  PopupSettings, ToastSettings } from '@skeletonlabs/skeleton';
 	import { Autocomplete, popup, getToastStore } from '@skeletonlabs/skeleton';
-	import Icon from '@iconify/svelte';
 
 	const toastStore = getToastStore();
 

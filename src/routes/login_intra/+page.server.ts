@@ -20,6 +20,7 @@ export async function load({ cookies, url }) {
     let token = await gettoken(code);
 
     if (token) {
+
       let user = await getUser(token);
       const user2 = {
         id: user.id,

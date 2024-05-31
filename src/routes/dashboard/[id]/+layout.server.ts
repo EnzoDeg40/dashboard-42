@@ -11,7 +11,7 @@ export const load = async ({ params, fetch, url, cookies, parent }) => {
       },
     }).catch((err) => {
       console.error(err);
-      return redirect(302, "/");
+      return redirect(302, `/dashboard${id}`);
     });
 
     const data = await res?.json();
@@ -32,7 +32,7 @@ export const load = async ({ params, fetch, url, cookies, parent }) => {
       }
     ).catch((err) => {
       console.error(err);
-      return redirect(302, "/");
+      return redirect(302, `/dashboard${id}`);
     });
 
     const data = await res?.json();

@@ -1,16 +1,15 @@
 <script lang="ts">
 	import { Avatar } from '@skeletonlabs/skeleton';
-	import { PUBLIC_BASE_URL } from "$env/static/public";
+	import { PUBLIC_BASE_URL,PUBLIC_DEV_URL } from "$env/static/public";
 	export let data;
 
-	const user = data.user;
-
-	console.log("bonjour");
+	$: user = data.user;
+	$: connexion = data.connexion;
 </script>
 
 <div class="container h-full mx-auto flex justify-center items-center">
 	<div class="space-y-10 text-center flex flex-col items-center">
-		{#if !data.connexion}
+		{#if !connexion}
 			<h2 class="h2">Before start using the dashboard you should login to discord.</h2>
 			<div class="flex justify-center space-x-2">
 				<a

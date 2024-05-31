@@ -24,8 +24,11 @@
 	export let data;
 
 	let isHovering = false;
-	let showdiscord = data.user? true : false;
 	let menuTimeout:any;
+
+	$: user = data.user;
+	$: userintra = data.userintra;
+	$: showdiscord = user ? true : false;
 
 	onMount(() => {
 		if (data.user) {
@@ -58,7 +61,7 @@
 			<svelte:fragment slot="trail">
 				<a
 					class="btn btn-sm variant-ghost-surface"
-					href="https://discord.gg/EXqV7W8MtY"
+					href="https://discord.com/invite/jmtk2qqHq2"
 					target="_blank"
 					rel="noreferrer"
 				>
@@ -72,7 +75,7 @@
 				>
 					<Icon icon="mdi:github" class="mr-2"/> Github
 				</a>
-				{#if !data.user}
+				{#if !user}
 					<a
 						class="btn btn-sm variant-soft-primary"
 						href="/login"
@@ -80,7 +83,7 @@
 					>
 						Login Discord
 					</a>
-				{:else if !data.userintra}
+				{:else if !userintra}
 					<a
 						class="btn btn-sm variant-soft-primary"
 						href="/login_intra"
@@ -104,8 +107,8 @@
 							in:fade={{ duration: 500 }}
 							out:fade={{ duration: 500 }}>
 								<Avatar
-									src={`https://cdn.discordapp.com/avatars/${data.user.id}/${data.user.avatar}.png?size=1024`}
-									alt={data.user.username}
+									src={`https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png?size=1024`}
+									alt={user.username}
 									class="absolute w-9 h-9"
 								/>
 							</div>
@@ -114,8 +117,8 @@
 							in:fade={{ duration: 500 }}
 							out:fade={{ duration: 500 }}>
 								<Avatar
-									src={data.userintra.avatar}
-									alt={data.userintra.username}
+									src={userintra.avatar}
+									alt={userintra.username}
 									class="absolute w-9 h-9"
 								/>
 							</div>
