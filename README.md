@@ -6,9 +6,9 @@ Welcome to the Marty42 Dashboard repository! This project is a user-friendly int
 - Features
 - Tech Stack
 - Getting Started
-- Prerequisites
-- Installation
-- Running the Project
+  - Prerequisites
+  - Installation
+  - Running the Project
 - Usage
 - Contributing
 - License
