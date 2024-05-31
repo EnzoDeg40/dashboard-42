@@ -68,7 +68,7 @@
 					<Icon icon="ic:baseline-discord" class="mr-2"/>Discord
 				</a>
 				<a
-					class="btn btn-sm variant-ghost-surface"
+					class="btn btn-sm variant-ghost-surface hidden md:flex"
 					href="https://github.com/cdurdetrouver/bot-42"
 					target="_blank"
 					rel="noreferrer"

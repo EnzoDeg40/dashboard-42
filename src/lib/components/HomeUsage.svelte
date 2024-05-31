@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { Avatar } from "@skeletonlabs/skeleton";
 	import { Accordion, AccordionItem } from '@skeletonlabs/skeleton';
 	import DocsPreview from './DocsPreview.svelte';
 </script>
