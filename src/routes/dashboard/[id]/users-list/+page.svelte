@@ -34,8 +34,9 @@
 	}
 </script>
 
-<div class="container h-[92vh] mx-auto flex justify-center overflow-y-scroll">
-	<div class="space-y-10 text-center flex flex-col items-center p-[10vh]">
+<div class="grid grid-cols-4 w-full overflow-y-scroll h-[92vh]">
+	<div class="col-span-1"></div>
+	<div class="col-span-2 space-y-10 text-center flex flex-col items-center p-[10vh]">
 			<h2 class="h2">Users List</h2>
 			{#if data.users.length === 0}
 				<p>No users found</p>

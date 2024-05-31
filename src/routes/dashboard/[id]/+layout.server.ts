@@ -40,29 +40,7 @@ export const load = async ({ params, fetch, url, cookies, parent }) => {
     return data.users;
   };
 
-  const fetchResponse = async () => {
-    const res = await fetch(`/api/guilds`, {
-      headers: {
-        Authorization: authmdp || "",
-      },
-    });
-
-    const data = await res?.json();
-
-    let check = false;
-    data.guilds.forEach((guild: any) => {
-      if (guild.guildid === id) {
-        check = true;
-      }
-    });
-
-    return check;
-  };
-
-  let indb = (await fetchResponse()) || false;
-
   return {
-    indb: indb,
     server: await fetchGuild(),
     discordusers: await fetchUsers(),
   };

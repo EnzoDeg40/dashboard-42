@@ -33,6 +33,14 @@ export const POST = async ({ request, params }) => {
 
   const usercollec = clientdb.db("guild").collection("user");
 
+  const userlist  = await usercollec.find({ guildid: params.guildid }).toArray();
+
+  if (userlist.length >= 20) {
+    return new Response(JSON.stringify({ message: "ERROR" }), {
+      status: 501,
+    });
+  }
+
   const user = await usercollec.updateOne(
     { guildid: params.guildid, intra: body.intra },
     {

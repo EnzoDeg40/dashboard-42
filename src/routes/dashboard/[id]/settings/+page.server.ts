@@ -3,7 +3,10 @@ import { authmdp, bottoken } from "$env/static/private";
 
 export const load = async ({ params, fetch, parent }) => {
   const { id } = params;
-  const { indb } = await parent();
+  const { guilds } = await parent();
+
+  let indb =false;
+  guilds.forEach((guild:any) => guild.guildid === id ? indb = true : null);
 
   if (!indb) return redirect(302, `/dashboard/${id}`);
 

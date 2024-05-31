@@ -5,11 +5,19 @@
 
 	export let data;
 
-	$: indb = data.indb;
+	function checkInDb(guilds:any[], id:string) {
+		let temp = false;
+		guilds.forEach((guild) => {
+			if (guild.guildid === id) temp = true;
+		});
+		return temp;
+	}
+
+	$: indb = checkInDb(data.guilds, $page.params.id);
 </script>
 
 <!-- App Shell -->
-<AppShell slotSidebarLeft="bg-surface-500/5 w-56 p-4 border-r-4 border-gray-700">
+<AppShell slotSidebarLeft="bg-surface-500/5 w-56 p-4 border-r-4 border-gray-700 hidden lg:grid">
 	<!-- Page Route Content -->
 	<svelte:fragment slot="sidebarLeft">
 		<!-- Insert the list: -->

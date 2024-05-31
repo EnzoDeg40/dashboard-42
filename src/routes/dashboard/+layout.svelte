@@ -20,7 +20,7 @@
 </script>
 
 <!-- App Shell -->
-<AppShell slotSidebarLeft="bg-surface-500/5 w-[10rem] p-4 overflow-y-auto border-r-4 border-gray-700">
+<AppShell slotSidebarLeft="bg-surface-500/5 w-[10rem] p-4 overflow-y-auto border-r-4 border-gray-700 hidden lg:grid">
 	<!-- Choose Server -->
 	<svelte:fragment slot="sidebarLeft">
 		<!-- list of server -->

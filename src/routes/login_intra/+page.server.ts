@@ -27,6 +27,7 @@ export async function load({ cookies, url }) {
         username: user.login,
         avatar: user.image.link,
       };
+
       cookies.set("userintra", JSON.stringify(user2), {
         path: "/",
         expires: new Date(Date.now() + token.expires_in * 1000),

@@ -5,7 +5,10 @@ export const load = async ({ params, fetch, parent }) => {
   const dataparent = await parent();
   const { id } = params;
 
-  if (!dataparent.indb) return redirect(302, `/dashboard/${id}`);
+  let indb =false;
+  dataparent.guilds.forEach((guild:any) => guild.guildid === id ? indb = true : null);
+
+  if (!indb) return redirect(302, `/dashboard/${id}`);
 
   const fetchResponse = async () => {
     const res = await fetch(`/api/${id}/user`, {

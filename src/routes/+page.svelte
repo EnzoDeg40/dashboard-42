@@ -4,7 +4,7 @@
 	import HomeUsage from "$lib/components/HomeUsage.svelte";
 	import HomeNotice from "$lib/components/HomeNotice.svelte";
 	import HomeFooter from "$lib/components/HomeFooter.svelte";
-  import DocsFooter from "$lib/components/DocsFooter.svelte";
+	import DocsFooter from "$lib/components/Footer.svelte";
 </script>
 
 <header id="hero" class="bg-surface-100-800-token hero-gradient">

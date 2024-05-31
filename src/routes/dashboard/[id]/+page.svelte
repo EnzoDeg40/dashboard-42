@@ -8,7 +8,16 @@
 
 	export let data;
 
-	$: locked2 = !data.indb;
+	function checkInDb(guilds:any[], id:string) {
+		let temp = false;
+		guilds.forEach((guild) => {
+			if (guild.guildid === id) temp = true;
+		});
+		return temp;
+	}
+
+	$: indb = checkInDb(data.guilds, $page.params.id);
+	$: locked2 = !indb;
 
 	$: name = data.server.name
 	if (data.server.name === undefined) {

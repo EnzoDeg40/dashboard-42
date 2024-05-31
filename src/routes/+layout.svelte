@@ -2,7 +2,8 @@
 	import { onMount } from "svelte";
 	import { fade } from "svelte/transition";
 	import "../app.postcss";
-	import { AppShell, AppBar, Avatar, storePopup, initializeStores, Toast } from '@skeletonlabs/skeleton';
+	import { AppShell, AppBar, Avatar, storePopup, initializeStores, Toast, type DrawerSettings, Drawer } from '@skeletonlabs/skeleton';
+	initializeStores();
 	import {
 		computePosition,
 		autoUpdate,
@@ -13,13 +14,16 @@
 	} from "@floating-ui/dom";
 	import { injectSpeedInsights } from '@vercel/speed-insights/sveltekit';
 	import { inject } from '@vercel/analytics';
-  import Icon from "@iconify/svelte";
+	import Icon from "@iconify/svelte";
+	import { getDrawerStore } from '@skeletonlabs/skeleton';
+	import SideBar from "$lib/components/SideBar.svelte";
+	const drawerStore = getDrawerStore();
+
 
 	inject();
 	injectSpeedInsights();
 
 	storePopup.set({ computePosition, autoUpdate, offset, shift, flip, arrow });
-	initializeStores();
 
 	export let data;
 
@@ -48,7 +52,16 @@
 			isHovering = false;
 		}, 200);
 	}
+
+	function drawerOpen(): void {
+		const s: DrawerSettings = { id: 'doc-sidenav' };
+		drawerStore.open(s);
+	}
 </script>
+
+<Drawer class="lg:hidden">
+	<SideBar servers={data.servers || []} guilds={data.guilds || []}/>
+</Drawer>
 
 <!-- App Shell -->
 <AppShell slotSidebarLeft="bg-surface-500/5 w-56 p-4">
@@ -56,7 +69,14 @@
 		<!-- App Bar -->
 		<AppBar>
 			<svelte:fragment slot="lead">
-				<a href="/"><span class="gradient-heading"><strong class="text-xl uppercase">Marty</strong></span></a>
+				<div class="flex items-center space-x-4">
+					<!-- Hamburger Menu -->
+					<button on:click={drawerOpen} class="btn-icon btn-icon-sm lg:!hidden">
+						<Icon icon="uil:bars" width=32/>
+					</button>
+					<!-- Logo -->
+					<a href="/"><span class="gradient-heading"><strong class="text-xl uppercase">Marty</strong></span></a>
+				</div>
 			</svelte:fragment>
 			<svelte:fragment slot="trail">
 				<a

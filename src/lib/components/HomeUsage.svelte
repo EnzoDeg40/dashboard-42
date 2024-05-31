@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { Accordion, AccordionItem } from '@skeletonlabs/skeleton';
-	import DocsPreview from './DocsPreview.svelte';
+	import DocsPreview from './Preview.svelte';
 </script>
 
 <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 md:gap-10 items-start">

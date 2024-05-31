@@ -78,14 +78,14 @@
 
 <div class="container h-full mx-auto flex justify-center items-center">
 	<div class="space-y-10 text-center flex flex-col items-center">
-		<form class="flex flex-row items-center space-x-10" method="POST">
+		<form class="flex items-center space-x-10" method="POST">
 			<input
 				class="hidden"
 				type="hidde"
 				bind:value={users}
 				name="users"
 			/>
-			<div class="flex flex-row items-center gap-5  w-full">
+			<div class="flex flex-col lg:flex-row items-center gap-5  w-full">
 				<div class="flex flex-col justify-between h-20">
 					<div class="pl-4 text-xl flex justify-start">
 						<p>Intra username : </p>

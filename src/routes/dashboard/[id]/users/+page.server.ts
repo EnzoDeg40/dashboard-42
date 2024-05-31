@@ -2,8 +2,11 @@ import { authmdp } from "$env/static/private";
 import { redirect } from "@sveltejs/kit";
 
 export const load = async ({ params, fetch, parent }) => {
-  const { indb } = await parent();
+  const { guilds } = await parent();
   const { id } = params;
+
+  let indb =false;
+  guilds.forEach((guild:any) => guild.guildid === id ? indb = true : null);
 
   if (!indb) return redirect(302, `/dashboard/${id}`);
 }
@@ -95,6 +98,13 @@ export const actions = {
         intra: intra_user,
       }),
     });
+
+    if (res.status !== 501) {
+      result.success = false;
+      result.message = "Too many users!";
+      result.intrauser = intra_user;
+      result.discorduser = discord_user;
+    }
 
     if (res.status !== 200) {
       result.success = false;
