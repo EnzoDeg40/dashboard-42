@@ -25,9 +25,9 @@ Multi-Server Support: Manage notifications across multiple Discord servers.
 Secure and User-Friendly: Simple and secure authentication with Discord and Intra 42.
 
 ## Tech Stack
-Framework: Svelte
-UI Library: Skeleton
-Backend: typescript
+Framework: Svelte   
+UI Library: Skeleton   
+Backend: typescript   
 
 ## Getting Started
 ### Prerequisites
