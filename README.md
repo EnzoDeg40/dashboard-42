@@ -14,21 +14,23 @@ Welcome to the Marty42 Dashboard repository! This project is a user-friendly int
 - License
 - Contact
 
-### Introduction
+## Introduction
 The Marty42 Dashboard is built with Svelte and leverages the Skeleton UI library for a modern, clean user interface. It enables users to seamlessly invite Marty42 to their Discord servers, connect their Discord and Intra 42 accounts, and customize notifications to celebrate their friends' achievements.
 
-Features
+## Features
 Automatic Notifications: Receive real-time Discord notifications when friends complete projects.
 Friend Management: Add, edit, and remove friends easily.
 Customizable Messages: Personalize notifications with custom messages and emojis.
 Multi-Server Support: Manage notifications across multiple Discord servers.
 Secure and User-Friendly: Simple and secure authentication with Discord and Intra 42.
-Tech Stack
+
+## Tech Stack
 Framework: Svelte
 UI Library: Skeleton
-Backend: Node.js (optional, if you have a backend for handling authentication and notifications)
-Getting Started
-Prerequisites
+Backend: typescript
+
+## Getting Started
+### Prerequisites
 Node.js (version 14 or higher)
 npm or yarn
 Discord account
