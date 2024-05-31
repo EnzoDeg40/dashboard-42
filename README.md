@@ -2,7 +2,7 @@
 Welcome to the Marty42 Dashboard repository! This project is a user-friendly interface built for managing Marty42, a Discord bot designed to notify users when their friends at 42 school complete a project. The dashboard simplifies the management of friends, messages, and notification settings.
 
 ## Table of Contents
-- Introduction
+- [Introduction](#tech-stack)
 - Features
 - Tech Stack
 - Getting Started
