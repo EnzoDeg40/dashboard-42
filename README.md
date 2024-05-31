@@ -31,9 +31,9 @@ Backend: typescript
 
 ## Getting Started
 ### Prerequisites
-Node.js (version 14 or higher)
-npm or yarn
-Discord account
+Node.js (version 14 or higher)   
+npm or yarn   
+Discord account   
 Intra 42 account
 
 ### Installation
