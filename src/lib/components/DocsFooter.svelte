@@ -62,7 +62,7 @@ import { Avatar } from '@skeletonlabs/skeleton';
 		<!-- Row 2 -->
 		<section class={cRowTwo}>
 			<p>
-				<a class="anchor" href="https://github.com/cdurdetrouver/dashboard-42/LICENSE" target="_blank" rel="noreferrer">
+				<a class="anchor" href="https://github.com/cdurdetrouver/dashboard-42/blob/main/LICENSE" target="_blank" rel="noreferrer">
 					License
 				</a>
 				<span class="opacity-10 mx-2">|</span>
