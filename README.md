@@ -35,14 +35,15 @@ Node.js (version 14 or higher)
 npm or yarn
 Discord account
 Intra 42 account
-Installation
+
+### Installation
 Clone the repository:
 
 bash
 Copier le code
 git clone https://github.com/yourusername/marty42-dashboard.git
 cd marty42-dashboard
-Install the dependencies:
+## Install the dependencies:
 
 bash
 Copier le code
@@ -52,7 +53,8 @@ or
 bash
 Copier le code
 yarn install
-Running the Project
+
+### Running the Project
 Start the development server:
 
 bash
@@ -65,12 +67,13 @@ Copier le code
 yarn dev
 Open your browser and navigate to http://localhost:5000 to view the dashboard.
 
-Usage
+## Usage
 Invite the Bot: Use the provided invitation link to add Marty42 to your Discord server.
 Connect to Discord: Log in to your Discord account via the dashboard to allow Marty42 to post notifications.
 Connect to Intra 42: Log in to your Intra 42 account to enable tracking of your friends' achievements.
 Configure Notifications: Customize the notification settings and messages to your liking through the dashboard.
-Contributing
+
+## Contributing
 We welcome contributions! Please follow these steps to contribute:
 
 Fork the repository.
@@ -80,8 +83,8 @@ Push to the branch (git push origin feature/your-feature-name).
 Open a pull request.
 Please ensure your code follows the project's coding standards and includes appropriate tests.
 
-License
+## License
 This project is licensed under the MIT License - see the LICENSE file for details.
 
-Contact
-For any questions or suggestions, please feel free to contact us at your-email@example.com.
+## Contact
+For any questions or suggestions, please feel free to contact us at gbazart@student.42paris.fr.
