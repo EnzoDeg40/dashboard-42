@@ -40,19 +40,19 @@ Intra 42 account
 Clone the repository:
 
 ``` bash
-git clone https://github.com/yourusername/marty42-dashboard.git
-cd marty42-dashboard
+git clone https://github.com/cdurdetrouver/dashboard-42.git
+cd dashboard-42
 ```
 ## Install the dependencies:
 
-bash
-Copier le code
+``` bash
 npm install
+```
 or
 
-bash
-Copier le code
+``` bash
 yarn install
+```
 
 ### Running the Project
 Start the development server:
