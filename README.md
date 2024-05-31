@@ -34,7 +34,8 @@ Backend: typescript
 Node.js (version 14 or higher)   
 npm or yarn   
 Discord account   
-Intra 42 account
+Intra 42 account   
+Mongodb account
 
 ### Installation
 Clone the repository:
