@@ -39,10 +39,10 @@ Intra 42 account
 ### Installation
 Clone the repository:
 
-bash
-Copier le code
+``` bash
 git clone https://github.com/yourusername/marty42-dashboard.git
 cd marty42-dashboard
+```
 ## Install the dependencies:
 
 bash
