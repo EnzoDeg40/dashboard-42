@@ -2,17 +2,17 @@
 Welcome to the Marty42 Dashboard repository! This project is a user-friendly interface built for managing Marty, a Discord bot designed to notify users when their friends at 42 school complete a project. The dashboard simplifies the management of friends, messages, and notification settings.
 
 ## Table of Contents
-- [Introduction](#tech-stack)
-- Features
-- Tech Stack
-- Getting Started
-  - Prerequisites
-  - Installation
-  - Running the Project
-- Usage
-- Contributing
-- License
-- Contact
+- [Introduction](#introduction)
+- [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+  - [Running the Project](#running-the-project)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
 
 ## Introduction
 The Marty Dashboard is built with Svelte and leverages the Skeleton UI library for a modern, clean user interface. It enables users to seamlessly invite Marty to their Discord servers, connect their Discord and Intra 42 accounts, and customize notifications to celebrate their friends' achievements.
