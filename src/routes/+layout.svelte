@@ -71,9 +71,11 @@
 			<svelte:fragment slot="lead">
 				<div class="flex items-center space-x-4">
 					<!-- Hamburger Menu -->
-					<button on:click={drawerOpen} class="btn-icon btn-icon-sm lg:!hidden">
-						<Icon icon="uil:bars" width=32/>
-					</button>
+					{#if data.servers !== null}
+						<button on:click={drawerOpen} class="btn-icon btn-icon-sm lg:!hidden">
+							<Icon icon="uil:bars" width=32/>
+						</button>
+					{/if}
 					<!-- Logo -->
 					<a href="/"><span class="gradient-heading"><strong class="text-xl uppercase">Marty</strong></span></a>
 				</div>
