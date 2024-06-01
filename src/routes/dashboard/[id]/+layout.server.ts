@@ -1,7 +1,8 @@
 import { redirect } from "@sveltejs/kit";
 import { authmdp, bottoken } from "$env/static/private";
+import type { LayoutServerLoad } from "./$types";
 
-export const load = async ({ params, fetch, url, cookies, parent }) => {
+export const load: LayoutServerLoad = async ({ params, fetch, cookies }) => {
   const { id } = params;
 
   const fetchGuild = async () => {
@@ -9,7 +10,7 @@ export const load = async ({ params, fetch, url, cookies, parent }) => {
       headers: {
         Authorization: authmdp || "",
       },
-    }).catch((err) => {
+    }).catch((err:any) => {
       console.error(err);
       return redirect(302, `/dashboard${id}`);
     });
@@ -30,7 +31,7 @@ export const load = async ({ params, fetch, url, cookies, parent }) => {
           Authorization: authmdp || "",
         },
       }
-    ).catch((err) => {
+    ).catch((err:any) => {
       console.error(err);
       return redirect(302, `/dashboard${id}`);
     });

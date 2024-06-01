@@ -1,6 +1,7 @@
 import { authmdp, API_ENDPOINT } from "$env/static/private";
+import type { RequestHandler } from "@sveltejs/kit";
 
-export const GET = async ({ request, url }) => {
+export const GET: RequestHandler = async ({ request, url }) => {
   const auth = request.headers.get("Authorization");
 
   if (auth != authmdp) {
@@ -10,8 +11,6 @@ export const GET = async ({ request, url }) => {
   }
 
   const access_token = url.searchParams.get("token");
-
-  // console.log(`Bearer ${access_token?.replaceAll('"', "")}`);
 
   const guilds = await fetch(`${API_ENDPOINT}/users/@me/guilds`, {
     headers: {

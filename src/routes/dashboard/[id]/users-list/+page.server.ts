@@ -1,7 +1,8 @@
 import { authmdp } from "$env/static/private";
 import { redirect } from "@sveltejs/kit";
+import type { PageServerLoad } from "./$types";
 
-export const load = async ({ params, fetch, parent }) => {
+export const load: PageServerLoad = async ({ params, fetch, parent }) => {
   const dataparent = await parent();
   const { id } = params;
 
@@ -16,7 +17,7 @@ export const load = async ({ params, fetch, parent }) => {
       headers: {
         Authorization: authmdp || "",
       },
-    }).catch((err) => {
+    }).catch((err:any) => {
       console.error(err);
       return null;
     });
@@ -45,7 +46,7 @@ export const load = async ({ params, fetch, parent }) => {
 };
 
 export const actions = {
-  default: async ({ request, fetch, params }) => {
+  default: async ({ request, fetch, params }: { params: any, fetch:any, request:any }) => {
     const formData = await request.formData();
     const user_id = formData.get("user-id")?.toString() || "";
 

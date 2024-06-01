@@ -1,6 +1,7 @@
 import { redirect } from "@sveltejs/kit";
+import type { PageServerLoad } from "./$types";
 
-export async function load({ cookies }) {
+export const load:PageServerLoad = async ({ cookies }) => {
   cookies.set("token", "", {
     path: "/",
     expires: new Date(0),

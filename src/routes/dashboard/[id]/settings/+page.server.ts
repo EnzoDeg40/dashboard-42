@@ -1,7 +1,8 @@
 import { redirect } from "@sveltejs/kit";
 import { authmdp, bottoken } from "$env/static/private";
+import type { PageServerLoad } from "./$types";
 
-export const load = async ({ params, fetch, parent }) => {
+export const load: PageServerLoad = async ({ params, fetch, parent }) => {
   const { id } = params;
   const { guilds } = await parent();
 
@@ -15,7 +16,7 @@ export const load = async ({ params, fetch, parent }) => {
       headers: {
         Authorization: authmdp || "",
       },
-    }).catch((err) => {
+    }).catch((err:any) => {
       console.error(err);
       return null;
     });
@@ -30,7 +31,7 @@ export const load = async ({ params, fetch, parent }) => {
       headers: {
         Authorization: authmdp || "",
       },
-    }).catch((err) => {
+    }).catch((err:any) => {
       console.error(err);
       return redirect(302, "/dashboard");
     });
@@ -47,7 +48,7 @@ export const load = async ({ params, fetch, parent }) => {
 };
 
 export const actions = {
-  default: async ({ request, fetch, params }) => {
+  default: async ({ request, fetch, params }: { params: any, fetch:any, request:any }) => {
     const formData = await request.formData();
     let check = formData.get("check")?.toString() || "false";
     let channel = formData.get("channel")?.toString() || "";

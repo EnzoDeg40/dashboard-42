@@ -71,7 +71,7 @@
 			<svelte:fragment slot="lead">
 				<div class="flex items-center space-x-4">
 					<!-- Hamburger Menu -->
-					{#if data.servers !== null}
+					{#if data.servers !== null && data.userintra !== null}
 						<button on:click={drawerOpen} class="btn-icon btn-icon-sm lg:!hidden">
 							<Icon icon="uil:bars" width=32/>
 						</button>

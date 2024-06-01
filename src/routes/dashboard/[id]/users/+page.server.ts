@@ -1,7 +1,8 @@
-import { authmdp } from "$env/static/private";
+import { authmdp, INTRA_ENDPOINT, INTRA_SECRET } from "$env/static/private";
 import { redirect } from "@sveltejs/kit";
+import type { PageServerLoad } from "./$types";
 
-export const load = async ({ params, fetch, parent }) => {
+export const load: PageServerLoad = async ({ params, parent }) => {
   const { guilds } = await parent();
   const { id } = params;
 
@@ -12,14 +13,12 @@ export const load = async ({ params, fetch, parent }) => {
 }
 
 export const actions = {
-  default: async ({ request, fetch, cookies, params }) => {
+  default: async ({ request, fetch, params }: { params: any, fetch:any, request:any }) => {
     const formData = await request.formData();
     const discord_user = formData.get("discord-user")?.toString() || "";
     const intra_user = formData.get("intra-user")?.toString() || "";
 
     const discordusers = JSON.parse(formData.get("users")?.toString() || "[]");
-
-    const token: string = cookies.get("tokenintra")?.toString() || "";
 
     const result = {
       success: true,
@@ -54,9 +53,9 @@ export const actions = {
     }
 
     if (intra_user.length !== 0 && !user_in) {
-      user = await fetch(`https://api.intra.42.fr/v2/users/${intra_user}`, {
+      user = await fetch(`${INTRA_ENDPOINT}/users/${intra_user}`, {
         headers: {
-          Authorization: `Bearer ${token.replaceAll('"', "")}`,
+          Authorization: "Bearer " + INTRA_SECRET,
         },
       });
     }

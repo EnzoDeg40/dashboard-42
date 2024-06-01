@@ -3,13 +3,13 @@ import axios from "axios";
 
 import { INTRA_ID, INTRA_ENDPOINT, INTRA_SECRET } from "$env/static/private";
 import { PUBLIC_BASE_URL } from "$env/static/public";
+import type { PageServerLoad } from "./$types";
 
-export async function load({ cookies, url }) {
+export const load:PageServerLoad = async ({ cookies, url }) => {
   let code = url.searchParams.get("code");
 
   let userintra = cookies.get("userintra");
-  let tokenintra = cookies.get("tokenintra");
-  if (userintra && tokenintra) {
+  if (userintra) {
     return {
       userintra: JSON.parse(userintra),
       connexion: true,
@@ -30,12 +30,7 @@ export async function load({ cookies, url }) {
 
       cookies.set("userintra", JSON.stringify(user2), {
         path: "/",
-        expires: new Date(Date.now() + token.expires_in * 1000),
-      });
-
-      cookies.set("tokenintra", JSON.stringify(token.access_token), {
-        path: "/",
-        expires: new Date(Date.now() + token.expires_in * 1000),
+        expires: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000),
       });
 
       return redirect(302, "/login_intra");

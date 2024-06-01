@@ -2,8 +2,9 @@ import { redirect } from "@sveltejs/kit";
 import axios from "axios";
 import { API_ENDPOINT, CLIENT_ID, CLIENT_SECRET } from "$env/static/private";
 import { PUBLIC_BASE_URL, PUBLIC_DEV_URL } from "$env/static/public";
+import type { PageServerLoad } from "./$types";
 
-export async function load({ cookies, url }) {
+export const load:PageServerLoad = async ({ cookies, url }) => {
   let code = url.searchParams.get("code");
 
   let user = cookies.get("user");

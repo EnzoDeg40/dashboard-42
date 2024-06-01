@@ -2,8 +2,9 @@ import { clientdb } from "$lib/database";
 import { ObjectId } from "mongodb";
 
 import { authmdp } from "$env/static/private";
+import type { RequestHandler } from "@sveltejs/kit";
 
-export const GET = async ({ request, params }) => {
+export const GET: RequestHandler = async ({ request, params }) => {
   const auth = request.headers.get("Authorization");
 
   if (auth != authmdp) {
@@ -21,7 +22,7 @@ export const GET = async ({ request, params }) => {
   });
 };
 
-export const POST = async ({ request, params }) => {
+export const POST: RequestHandler = async ({ request, params }) => {
   const auth = request.headers.get("Authorization");
   const body = await request.json();
 
@@ -66,7 +67,7 @@ export const POST = async ({ request, params }) => {
   });
 };
 
-export const DELETE = async ({ request, params }) => {
+export const DELETE: RequestHandler = async ({ request }) => {
   const auth = request.headers.get("Authorization");
   const body = await request.json();
 

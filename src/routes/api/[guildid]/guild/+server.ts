@@ -1,6 +1,7 @@
 import { authmdp, API_ENDPOINT } from "$env/static/private";
+import type { RequestHandler } from "@sveltejs/kit";
 
-export const GET = async ({ request, url, params }) => {
+export const GET: RequestHandler = async ({ request, url, params }) => {
   const auth = request.headers.get("Authorization");
 
   if (auth != authmdp) {
