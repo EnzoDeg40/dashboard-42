@@ -59,6 +59,33 @@
 	}
 </script>
 
+<svelte:head>
+	<title>Marty</title>
+	<!-- Meta Tags -->
+	<meta name="title" content="Dashboard Marty" />
+	<meta name="description" content="A dashboard for control the bot Marty" />
+	<meta name="keywords" content="svelte, sveltekit, web, ui, components, reactive, accessibility, typescript, css, open source" />
+	<meta name="theme-color" content="#242c46" />
+	<meta name="author" content="cdurdetrouver" />
+	<!-- Open Graph - https://ogp.me/ -->
+	<meta property="og:site_name" content="Marty" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://www.marty42.xyz" />
+	<meta property="og:locale" content="en_US" />
+	<meta property="og:title" content="Dashboard Marty" />
+	<meta property="og:description" content="Marty42 Dashboard - Manage and customize your Marty42 Discord bot notifications. Easily track and celebrate your friends' achievements at 42 school with a user-friendly interface and powerful features." />
+	<meta property="og:image" content="https://www.marty42.xyz/meta-image.png" />
+	<meta property="og:image:secure_url" content="https://www.marty42.xyz/meta-image.png" />
+	<meta property="og:image:type" content="image/png" />
+	<meta property="og:image:width" content="1628" />
+	<meta property="og:image:height" content="740" />
+	<!-- Open Graph: Twitter -->
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:title" content="Dashboard Marty" />
+	<meta name="twitter:description" content="Marty42 Dashboard - Manage and customize your Marty42 Discord bot notifications. Easily track and celebrate your friends' achievements at 42 school with a user-friendly interface and powerful features." />
+	<meta name="twitter:image" content="https://www.marty42.xyz/meta-image.png" />
+</svelte:head>
+
 <Drawer class="lg:hidden">
 	<SideBar servers={data.servers || []} guilds={data.guilds || []}/>
 </Drawer>
