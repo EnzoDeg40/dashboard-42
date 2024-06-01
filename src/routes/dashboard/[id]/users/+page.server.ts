@@ -1,4 +1,4 @@
-import { authmdp, INTRA_ENDPOINT, INTRA_SECRET } from "$env/static/private";
+import { authmdp, INTRA_ENDPOINT } from "$env/static/private";
 import { redirect } from "@sveltejs/kit";
 import type { PageServerLoad } from "./$types";
 import { client42 } from "$lib";
