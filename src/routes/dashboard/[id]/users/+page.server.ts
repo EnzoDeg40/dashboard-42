@@ -1,6 +1,7 @@
 import { authmdp, INTRA_ENDPOINT, INTRA_SECRET } from "$env/static/private";
 import { redirect } from "@sveltejs/kit";
 import type { PageServerLoad } from "./$types";
+import { client42 } from "$lib";
 
 export const load: PageServerLoad = async ({ params, parent }) => {
   const { guilds } = await parent();
@@ -52,10 +53,12 @@ export const actions = {
       user.status = 200;
     }
 
-    if (intra_user.length !== 0 && !user_in) {
+    const token = await client42.credentials.getToken();
+
+    if (intra_user.length !== 0 && !user_in && token.data.access_token) {
       user = await fetch(`${INTRA_ENDPOINT}/users/${intra_user}`, {
         headers: {
-          Authorization: "Bearer " + INTRA_SECRET,
+          Authorization: `Bearer ${token.data.access_token}`,
         },
       });
     }
@@ -98,7 +101,7 @@ export const actions = {
       }),
     });
 
-    if (res.status !== 501) {
+    if (res.status === 501) {
       result.success = false;
       result.message = "Too many users!";
       result.intrauser = intra_user;
