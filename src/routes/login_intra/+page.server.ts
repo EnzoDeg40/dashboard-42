@@ -8,6 +8,8 @@ import type { PageServerLoad } from "./$types";
 export const load:PageServerLoad = async ({ cookies, url }) => {
   let code = url.searchParams.get("code");
 
+
+
   let userintra = cookies.get("userintra");
   if (userintra) {
     return {
@@ -67,6 +69,7 @@ async function getUser(token: any) {
       },
     })
     .catch((e) => {
+      console.log("error", e);
       return null;
     });
 
