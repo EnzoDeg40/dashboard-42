@@ -104,7 +104,7 @@
 						<p>Discord username : </p>
 					</div>
 					<input
-						class="input {inputDiscordError? 'input-error' : ''} autocomplete p-4 pb-2 pt-2 w-full"
+						class="input {inputDiscordError? 'input-error' : ''} p-4 pb-2 pt-2 w-full"
 						type="search"
 						name="discord-user"
 						bind:value={inputDiscord}
